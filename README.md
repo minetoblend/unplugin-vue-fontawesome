@@ -20,6 +20,7 @@ import FontAwesome from 'unplugin-vue-fontawesome/vite'
 export default defineConfig({
   plugins: [
     FontAwesome({
+      collections: 'pro',
       /* options */
     }),
   ],
@@ -40,6 +41,7 @@ import FontAwesome from 'unplugin-vue-fontawesome/rollup'
 export default {
   plugins: [
     FontAwesome({
+      collections: 'pro',
       /* options */
     }),
   ],
@@ -57,6 +59,7 @@ module.exports = {
   /* ... */
   plugins: [
     require('unplugin-vue-fontawesome/webpack')({
+      collections: 'pro',
       /* options */
     }),
   ],
@@ -75,6 +78,7 @@ export default {
     [
       'unplugin-vue-fontawesome/nuxt',
       {
+        collections: 'pro',
         /* options */
       },
     ],
@@ -95,6 +99,7 @@ module.exports = {
   configureWebpack: {
     plugins: [
       require('unplugin-vue-fontawesome/webpack')({
+        collections: 'pro',
         /* options */
       }),
     ],
@@ -113,7 +118,10 @@ import { build } from 'esbuild'
 import FontAwesome from 'unplugin-vue-fontawesome/esbuild'
 
 build({
-  plugins: [FontAwesome()],
+  plugins: [FontAwesome({
+    collections: 'pro',
+    /* options */
+  })],
 })
 ```
 
@@ -147,7 +155,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 library.add(faIconName)
 ```
 
-_Note: It is not recommended to do this inside `<script setup>` since that will register the icons every time the component mounts. _
+*Note: It is not recommended to do this inside `<script setup>` since that will register the icons every time the component mounts.*
 
 ## Configuration
 
