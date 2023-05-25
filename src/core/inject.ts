@@ -1,6 +1,5 @@
 import type { TransformResult } from 'unplugin'
 import MagicString from 'magic-string'
-import { capitalize } from '@antfu/utils'
 import type { IconInfo } from '../types'
 
 const PREFIX = '__fa__icon'
@@ -19,7 +18,8 @@ export function injectIcons(code: string, icons: IconInfo[]): TransformResult {
   let injectedCode = '/* auto-generated fontawesome imports */\n'
 
   icons.forEach((icon) => {
-    const importName = `fa${capitalize(camelize(icon.name))}`
+    const iconName = camelize(icon.name)
+    const importName = `fa${iconName.charAt(0).toUpperCase() + iconName.slice(1)}`
     const importedAs = `${PREFIX}${count++}`
     const moduleName = icon.collection.module
     injectedCode += `import { ${importName} as ${importedAs} } from "${moduleName}";\n`
