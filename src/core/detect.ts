@@ -1,18 +1,18 @@
-import type {
-  AttributeNode,
-  DirectiveNode,
-} from '@vue/compiler-dom'
 import {
-  parse,
-  transform,
-} from '@vue/compiler-dom'
+  type AttributeNode,
+  type DirectiveNode,
+  type TemplateChildNode,
+} from '@vue/compiler-core'
+import { parse } from '@vue/compiler-sfc'
 import type { IconInfo } from '../types'
 import type { Context } from './ctx'
 
 const arrayIconRE = /\[['"]([\w-]+)['"]\s*,\s*[['"]([\w-]+)['"]\]/
 
 export function detectIcons(code: string, ctx: Context) {
-  const root = parse(code)
+  const { descriptor, errors } = parse(code)
+  if (errors.length > 0 || !descriptor.template)
+    return []
 
   const icons = new Map<string, IconInfo>()
 
@@ -20,20 +20,23 @@ export function detectIcons(code: string, ctx: Context) {
     return [icon.name, icon.collection.id].flat().join('-')
   }
 
-  transform(root, {
-    nodeTransforms: [
-      (node) => {
-        if (node.type === 1 /* ELEMENT */ && ctx.filterComponent(node.tag)) {
-          for (const prop of node.props) {
-            if (prop.type === 6 /* ATTRIBUTE */)
-              detectIconsInAttribute(prop)
-            else if (prop.type === 7 /* DIRECTIVE */)
-              detectIconsInDirective(prop)
-          }
+  function traverse(node: TemplateChildNode) {
+    if (node.type === 1 /* ELEMENT */) {
+      if (ctx.filterComponent(node.tag)) {
+        for (const prop of node.props) {
+          if (prop.type === 6 /* ATTRIBUTE */)
+            detectIconsInAttribute(prop)
+          else if (prop.type === 7 /* DIRECTIVE */)
+            detectIconsInDirective(prop)
         }
-      },
-    ],
-  })
+      }
+
+      for (const child of node.children)
+        traverse(child)
+    }
+  }
+
+  traverse(descriptor.template.ast)
 
   function detectIconsInAttribute(prop: AttributeNode) {
     if (ctx.filterProp(prop.name) && prop.value) {

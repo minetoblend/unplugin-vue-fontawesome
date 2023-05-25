@@ -88,10 +88,10 @@
   },
   "dependencies": {
     "@antfu/utils": "^0.7.2",
-    "@vue/compiler-dom": "^3.3.4",
+    "@rollup/pluginutils": "^5.0.2",
+    "@vue/compiler-sfc": "^3.3.4",
     "magic-string": "^0.30.0",
-    "unplugin": "^1.1.1",
-    "@rollup/pluginutils": "^5.0.2"
+    "unplugin": "^1.1.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.33.1",
