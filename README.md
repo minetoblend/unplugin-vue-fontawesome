@@ -172,7 +172,7 @@ FontAwesome({
   // prop names to be tested for icons
   props: ['icon'],
 
-  // component names to be tested for icons
+  // component names to be tested for icons, use an empty array to check all components
   components: ['icon', 'font-awesome-icon'],
 
   // filters for transforming targets

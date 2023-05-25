@@ -62,6 +62,7 @@ export interface Options {
 
   /**
    * Components to look for icons in.
+   * Use an empty array to check all components
    *
    * @default [ 'icon', 'font--icon' ]
    */

@@ -134,5 +134,8 @@ function createComponentFilter(
 
   const componentNames = toArray(components).map(hyphenate)
 
+  if (componentNames.length === 0)
+    return () => true
+
   return (name: string) => componentNames.includes(hyphenate(name))
 }
