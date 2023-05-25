@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "packageManager": "pnpm@7.1.1",
   "description": "Register global imports on demand for Vite and Webpack",
-  "license": "MIT",
   "author": "Marvin Schürz <minetoblend@gmail.com>",
+  "license": "MIT",
   "homepage": "https://github.com/minetoblend/unplugin-vue-fontawesome",
   "repository": {
     "type": "git",

@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import Inspect from 'vite-plugin-inspect'
-import FontAwesome from '../src/vite'
 import vue from '@vitejs/plugin-vue'
+import FontAwesome from '../src/vite'
 
 export default defineConfig({
   plugins: [

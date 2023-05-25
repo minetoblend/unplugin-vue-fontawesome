@@ -15,7 +15,7 @@ npm i -D unplugin-vue-fontawesome
 
 ```ts
 // vite.config.ts
-import FontAwesome from "unplugin-vue-fontawesome/vite";
+import FontAwesome from 'unplugin-vue-fontawesome/vite'
 
 export default defineConfig({
   plugins: [
@@ -23,7 +23,7 @@ export default defineConfig({
       /* options */
     }),
   ],
-});
+})
 ```
 
 Example: [`playground/`](./playground/)
@@ -35,7 +35,7 @@ Example: [`playground/`](./playground/)
 
 ```ts
 // rollup.config.js
-import FontAwesome from "unplugin-vue-fontawesome/rollup";
+import FontAwesome from 'unplugin-vue-fontawesome/rollup'
 
 export default {
   plugins: [
@@ -43,7 +43,7 @@ export default {
       /* options */
     }),
   ],
-};
+}
 ```
 
 <br></details>
@@ -56,11 +56,11 @@ export default {
 module.exports = {
   /* ... */
   plugins: [
-    require("unplugin-vue-fontawesome/webpack")({
+    require('unplugin-vue-fontawesome/webpack')({
       /* options */
     }),
   ],
-};
+}
 ```
 
 <br></details>
@@ -73,13 +73,13 @@ module.exports = {
 export default {
   buildModules: [
     [
-      "unplugin-vue-fontawesome/nuxt",
+      'unplugin-vue-fontawesome/nuxt',
       {
         /* options */
       },
     ],
   ],
-};
+}
 ```
 
 > This module works for both Nuxt 2 and [Nuxt Vite](https://github.com/nuxt/vite)
@@ -94,12 +94,12 @@ export default {
 module.exports = {
   configureWebpack: {
     plugins: [
-      require("unplugin-vue-fontawesome/webpack")({
+      require('unplugin-vue-fontawesome/webpack')({
         /* options */
       }),
     ],
   },
-};
+}
 ```
 
 <br></details>
@@ -109,12 +109,12 @@ module.exports = {
 
 ```ts
 // esbuild.config.js
-import { build } from "esbuild";
-import FontAwesome from "unplugin-vue-fontawesome/esbuild";
+import { build } from 'esbuild'
+import FontAwesome from 'unplugin-vue-fontawesome/esbuild'
 
 build({
   plugins: [FontAwesome()],
-});
+})
 ```
 
 <br></details>
@@ -156,21 +156,21 @@ The following show the default values of the configuration
 ```ts
 FontAwesome({
   // the fontawesome collections to use
-  collections: "free",
+  collections: 'free',
 
   // collection that is used if no collection is specified
-  defaultCollection: "solid",
+  defaultCollection: 'solid',
 
   // prop names to be tested for icons
-  props: ["icon"],
+  props: ['icon'],
 
   // component names to be tested for icons
-  components: ["icon", "font-awesome-icon"],
+  components: ['icon', 'font-awesome-icon'],
 
   // filters for transforming targets
   include: [/\.[jt]sx?$/, /\.vue\??/],
   exclude: [/node_modules/, /\.git/],
-});
+})
 ```
 
 ### Collections

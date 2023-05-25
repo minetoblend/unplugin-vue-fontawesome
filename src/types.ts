@@ -1,42 +1,42 @@
-import { FilterPattern } from "vite";
-import { Arrayable } from "@antfu/utils";
+import type { FilterPattern } from 'vite'
+import type { Arrayable } from '@antfu/utils'
 
 export interface IconCollection {
-  name: string;
-  prefix: string;
-  module: string;
-  id: string | string[];
+  name: string
+  prefix: string
+  module: string
+  id: string | string[]
 }
 
 export interface IconCollectionMap {
-  [key: string]: IconCollection;
+  [key: string]: IconCollection
 }
 
 export type PresetName =
-  | "pro"
-  | "free"
-  | "pro-solid"
-  | "pro-regular"
-  | "pro-light"
-  | "pro-thin"
-  | "pro-duotone"
-  | "sharp-solid"
-  | "sharp-regular"
-  | "sharp-light"
-  | "free-solid"
-  | "free-regular"
-  | "free-brands";
+  | 'pro'
+  | 'free'
+  | 'pro-solid'
+  | 'pro-regular'
+  | 'pro-light'
+  | 'pro-thin'
+  | 'pro-duotone'
+  | 'sharp-solid'
+  | 'sharp-regular'
+  | 'sharp-light'
+  | 'free-solid'
+  | 'free-regular'
+  | 'free-brands'
 
 export interface PropInfo {
-  name: string;
-  value: string;
-  type: "string" | "expression";
+  name: string
+  value: string
+  type: 'string' | 'expression'
 }
 
 export type IconInfo =
-  | { name: string; collection: IconCollection };
+  | { name: string; collection: IconCollection }
 
-export type IconResolver = (prop: PropInfo) => string | undefined;
+export type IconResolver = (prop: PropInfo) => string | undefined
 
 export interface Options {
   /**
@@ -44,40 +44,40 @@ export interface Options {
    *
    * @default "free"
    */
-  collections?: Arrayable<PresetName | IconCollection>;
+  collections?: Arrayable<PresetName | IconCollection>
 
   /**
    * The default collection to use
-   * 
+   *
    * @default "solid"
    */
-  defaultCollection?: string;
+  defaultCollection?: string
 
   /**
    * Props to look for icons in.
    *
    * @default [ "icon" ]
    */
-  props?: string | string[];
+  props?: string | string[]
 
   /**
    * Components to look for icons in.
    *
    * @default [ 'icon', 'font--icon' ]
    */
-  components?: string | string[] | ((component: string) => boolean);
+  components?: string | string[] | ((component: string) => boolean)
 
   /**
    * Rules to include transforming target.
 
    * @default [/\.[jt]sx?$/, /\.vue\??/]
    */
-  include?: FilterPattern;
+  include?: FilterPattern
 
   /**
    * Rules to exclude transforming target.
    *
    * @default [/node_modules/, /\.git/ ]
    */
-  exclude?: FilterPattern;
+  exclude?: FilterPattern
 }

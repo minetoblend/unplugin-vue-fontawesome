@@ -18,7 +18,7 @@
     "skipLibCheck": true,
     "noEmit": true,
     "types": [
-      "vite/client",
+      "vite/client"
     ]
   },
   "include": [
@@ -26,7 +26,7 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "src/**/*.md",
+    "src/**/*.md"
   ],
   "vueCompilerOptions": {}
 }
