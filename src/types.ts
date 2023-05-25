@@ -70,7 +70,7 @@ export interface Options {
   /**
    * Rules to include transforming target.
 
-   * @default [/\.[jt]sx?$/, /\.vue\??/]
+   * @default [/\.vue$/, /\.vue\?vue/]
    */
   include?: FilterPattern
 

@@ -10,7 +10,7 @@ export function createContext(options: Options = {}) {
   const moduleIconMap = new Map<string, IconInfo[]>()
 
   const filter = createFilter(
-    options.include ?? [/\.[jt]sx?$/, /\.vue\??/],
+    options.include ?? [/\.vue$/, /\.vue\?vue/],
     options.exclude ?? [/node_modules/, /\.git/],
   )
 

@@ -176,7 +176,7 @@ FontAwesome({
   components: ['icon', 'font-awesome-icon'],
 
   // filters for transforming targets
-  include: [/\.[jt]sx?$/, /\.vue\??/],
+  include: [/\.vue$/, /\.vue\?vue/],
   exclude: [/node_modules/, /\.git/],
 })
 ```
