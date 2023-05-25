@@ -28,8 +28,8 @@ export function injectIcons(code: string, icons: IconInfo[]): TransformResult {
   })
 
   injectedCode
-    += 'import { library } from "@fortawesome/fontawesome-svg-core";\n'
-    + `library.add(${Array.from(importedIcons).join(', ')});\n\n`
+    += `import { library as ${PREFIX}_library } from "@fortawesome/fontawesome-svg-core";\n`
+    + `${PREFIX}_library.add(${Array.from(importedIcons).join(', ')});\n\n`
 
   s.prepend(injectedCode)
 
